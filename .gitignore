@@ -335,8 +335,6 @@ static
 .idea/
 .repository/
 *.iws
-*.jrtc
-*.java
 *.info
 *.properties
 
