@@ -22,7 +22,7 @@ public class Task implements Callable<String> {
     @Override
     public String call() throws Exception {
         Thread.sleep(new Random().nextInt(20));
-        System.out.println(letter);
-        return "" + future.get().substring(0, future.get().indexOf(letter));
+        System.out.println(future.get() + letter);
+        return future.get() + letter;
     }
 }
