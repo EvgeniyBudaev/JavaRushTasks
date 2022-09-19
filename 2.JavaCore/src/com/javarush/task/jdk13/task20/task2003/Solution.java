@@ -2,7 +2,7 @@ package com.javarush.task.jdk13.task20.task2003;
 
 import java.io.*;
 
-/* 
+/*
 Как сериализовать Singleton?
 */
 
@@ -53,6 +53,10 @@ public class Solution implements Serializable {
         }
 
         private Singleton() {
+        }
+
+        private Object readResolve()  {
+            return ourInstance;
         }
     }
 }
