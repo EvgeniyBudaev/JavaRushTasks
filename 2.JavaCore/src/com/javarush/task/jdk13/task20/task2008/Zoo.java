@@ -2,7 +2,6 @@ package com.javarush.task.jdk13.task20.task2008;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import com.fasterxml.jackson.annotation.JsonTypeName;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,10 +9,10 @@ import java.util.List;
 public class Zoo {
     public List<Animal> animals = new ArrayList<>();
 
-    @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY,  property="type")
+    @JsonTypeInfo(use = JsonTypeInfo.Id.NAME)
     @JsonSubTypes({
-            @JsonSubTypes.Type(value = Zoo.Lion.class, name = "lion"),
-            @JsonSubTypes.Type(value = Zoo.Penguin.class, name = "penguin "),
+            @JsonSubTypes.Type(value = Lion.class, name = "lion"),
+            @JsonSubTypes.Type(value = Penguin.class, name = "penguin"),
 
     })
     public static class Animal {
@@ -27,7 +26,6 @@ public class Zoo {
         }
     }
 
-    @JsonTypeName("lion")
     public static class Lion extends Animal {
         public double roarVolume;
 
@@ -39,8 +37,7 @@ public class Zoo {
             this.roarVolume = roarVolume;
         }
     }
-
-    @JsonTypeName("penguin")
+    
     public static class Penguin extends Animal {
         public int age;
         boolean likesCream;

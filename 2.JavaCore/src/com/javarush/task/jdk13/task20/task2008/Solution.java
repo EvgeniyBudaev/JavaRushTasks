@@ -1,7 +1,6 @@
 package com.javarush.task.jdk13.task20.task2008;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;
 
 /* 
@@ -17,7 +16,7 @@ public class Solution {
         zoo.animals.add(new Zoo.Penguin("Рико", false, 6));
         zoo.animals.add(new Zoo.Penguin("Прапор", false, 5));
 
-        String result = new ObjectMapper().writeValueAsString(zoo);
+        String result = new YAMLMapper().writeValueAsString(zoo);
 
         System.out.println(result);
     }
